@@ -1,141 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Research Article Helper - AI-powered app for summarizing and exploring research articles.">
-    <meta name="author" content="Your Name">
-    <title>Research Article Helper</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Research Article Helper</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(45deg, #ff6b6b, #f0e130, #2c3e50, #8e44ad);
+      background-size: 400% 400%;
+      animation: gradient-animation 15s ease infinite;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* Sidebar Styling */
-        .sidebar {
-            height: 100%;
-            width: 250px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #004d7a;
-            overflow-x: hidden;
-            padding-top: 20px;
-        }
+    h1, p {
+      text-align: center;
+      margin: 20px;
+    }
 
-        .sidebar a {
-            padding: 15px 20px;
-            text-decoration: none;
-            font-size: 18px;
-            color: #fff;
-            display: block;
-            transition: 0.3s;
-        }
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      text-align: center;
+    }
 
-        .sidebar a:hover {
-            background-color: #008cba;
-        }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+    }
 
-        .content {
-            margin-left: 250px;
-            padding: 20px;
-        }
+    .footer p {
+      margin: 5px 0;
+    }
 
-        header {
-            background-color: #004d7a;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-        }
+    .counter {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 2em;
-        }
+    .emoji {
+      font-size: 2rem;
+    }
 
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 18px;
-            color: #fff;
-            background-color: #008cba;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            text-align: center;
-            cursor: pointer;
-            margin: 10px 0;
-        }
+    @keyframes gradient-animation {
+      0% {
+        background-position: 0% 50%;
+      }
 
-        .button:hover {
-            background-color: #005f7a;
-        }
+      50% {
+        background-position: 100% 50%;
+      }
 
-        .section {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .section h2 {
-            margin-top: 0;
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #f1f1f1;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            color: #555;
-        }
-    </style>
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  </style>
 </head>
+
 <body>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <a href="#">Home</a>
-        <a href="#upload">Upload File</a>
-        <a href="#summary">Summary</a>
-        <a href="#contact">Contact</a>
+  <div class="content">
+    <h1>Welcome to the Research Article Helper!</h1>
+    <p>Upload a PDF and explore its knowledge</p>
+    <div class="counter">
+      <p>Users so far: <span id="userCount">Loading...</span></p>
     </div>
+  </div>
 
-    <!-- Content Area -->
-    <div class="content">
-        <header>
-            <h1>Research Article Helper</h1>
-            <p>Your AI-powered assistant for exploring research articles!</p>
-        </header>
+  <footer class="footer">
+    <p>© 2024 Research Article Helper | Built with 💻 by Mujtaba</p>
+  </footer>
 
-        <div id="upload" class="section">
-            <h2>Upload Your Research Paper</h2>
-            <p>Upload your PDF file to extract insights, summaries, and key details.</p>
-            <a class="button" href="app.py">Go to App</a>
-        </div>
+  <script>
+    function fetchUserCount() {
+      let userCount = 1234;
+      document.getElementById('userCount').innerText = userCount;
+    }
 
-        <div id="summary" class="section">
-            <h2>Generate Summary</h2>
-            <p>Click below to get a detailed and accurate summary of your research paper:</p>
-            <a class="button" href="#">Generate Summary</a>
-        </div>
-
-        <div id="contact" class="section">
-            <h2>Contact Us</h2>
-            <p>For queries or support, reach out to <strong>mujtabanaqvi29@gmail.com</strong>.</p>
-        </div>
-    </div>
-
-    <footer>
-        &copy; 2024 Research Article Helper | Built with 💻 by Mujtaba
-    </footer>
-
+    setInterval(fetchUserCount, 2000);
+  </script>
 </body>
+
 </html>
