@@ -9,26 +9,89 @@
   <style>
     body {
       font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      min-height: 100vh;
       background: linear-gradient(45deg, #ff6b6b, #f0e130, #2c3e50, #8e44ad);
       background-size: 400% 400%;
       animation: gradient-animation 15s ease infinite;
       color: #fff;
-      margin: 0;
-      padding: 0;
     }
 
-    h1, p {
-      text-align: center;
-      margin: 20px;
+    @keyframes gradient-animation {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      position: fixed;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .sidebar h2 {
+      color: #fff;
+      margin-bottom: 30px;
+    }
+
+    .sidebar button {
+      background-color: #ff6b6b;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px 0;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    .sidebar button:hover {
+      background-color: #e74c3c;
     }
 
     .content {
+      margin-left: 250px;
+      padding: 30px;
+      flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 80vh;
       text-align: center;
+    }
+
+    .content h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      font-size: 18px;
+      margin: 20px;
+    }
+
+    .counter {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 20px;
     }
 
     .footer {
@@ -45,37 +108,26 @@
       margin: 5px 0;
     }
 
-    .counter {
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-
     .emoji {
       font-size: 2rem;
-    }
-
-    @keyframes gradient-animation {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
     }
   </style>
 </head>
 
 <body>
+  <div class="sidebar">
+    <h2>Research Article Helper</h2>
+    <button>Upload PDF</button>
+    <button>Get Summary</button>
+    <button>Assist with Document</button>
+  </div>
+
   <div class="content">
     <h1>Welcome to the Research Article Helper!</h1>
     <p>Upload a PDF and explore its knowledge</p>
+
     <div class="counter">
-      <p>Users so far: <span id="userCount">Loading...</span></p>
+      <p>Documents Assisted so far: <span id="documentCount">0</span></p>
     </div>
   </div>
 
@@ -84,12 +136,14 @@
   </footer>
 
   <script>
-    function fetchUserCount() {
-      let userCount = 1234;
-      document.getElementById('userCount').innerText = userCount;
+    let documentCount = 0;
+
+    function updateDocumentCount() {
+      documentCount += 1;
+      document.getElementById('documentCount').innerText = documentCount;
     }
 
-    setInterval(fetchUserCount, 2000);
+    setInterval(updateDocumentCount, 5000);
   </script>
 </body>
 
