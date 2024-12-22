@@ -23,7 +23,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            background-color: #004d7a;
+            background-color: #003366;
             overflow-x: hidden;
             padding-top: 20px;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -39,7 +39,7 @@
         }
 
         .sidebar a:hover {
-            background-color: #006994;
+            background-color: #005b7f;
             padding-left: 30px;
         }
 
@@ -50,7 +50,7 @@
         }
 
         header {
-            background-color: #004d7a;
+            background-color: #003366;
             color: white;
             padding: 20px;
             text-align: center;
@@ -85,7 +85,7 @@
         }
 
         .button:hover {
-            background-color: #006994;
+            background-color: #005f7a;
         }
 
         /* Section Styling */
@@ -99,14 +99,14 @@
 
         .section h2 {
             font-size: 1.8em;
-            color: #004d7a;
+            color: #003366;
         }
 
         /* Footer Styling */
         footer {
             text-align: center;
             padding: 15px;
-            background-color: #004d7a;
+            background-color: #003366;
             color: #fff;
             position: fixed;
             bottom: 0;
@@ -120,6 +120,14 @@
 
         .emoji {
             font-size: 1.5rem;
+        }
+
+        .counter {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -154,10 +162,22 @@
             <a class="button" href="#">Generate Summary</a>
         </div>
 
+        <!-- Description Section -->
+        <div id="description" class="section">
+            <h2>About the Application</h2>
+            <p>This application uses advanced LLM models with RAG (Retriever-Augmented Generation) to generate responses and summarize research papers effectively.</p>
+        </div>
+
         <!-- Contact Section -->
         <div id="contact" class="section">
             <h2>Contact Us</h2>
-            <p>For queries or support, reach out to <strong>your-email@example.com</strong></p>
+            <p>For queries or support, reach out to <a href="https://www.linkedin.com/in/dr-syed-mujtaba-ul-hassan-892806b7/" target="_blank">Dr. Syed Mujtaba Ul Hassan on LinkedIn</a>.</p>
+        </div>
+
+        <!-- Usage Counter -->
+        <div class="counter">
+            <h3>Documents Helped So Far:</h3>
+            <p>0 Documents</p>
         </div>
     </div>
 
