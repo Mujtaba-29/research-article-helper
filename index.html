@@ -1,150 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Research Article Helper</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      min-height: 100vh;
-      background: linear-gradient(45deg, #ff6b6b, #f0e130, #2c3e50, #8e44ad);
-      background-size: 400% 400%;
-      animation: gradient-animation 15s ease infinite;
-      color: #fff;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Research Article Helper - AI-powered app for summarizing and exploring research articles.">
+    <meta name="author" content="Mujtaba">
+    <title>Research Article Helper</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
 
-    @keyframes gradient-animation {
-      0% {
-        background-position: 0% 50%;
-      }
+        /* Sidebar Styling */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #004d7a;
+            overflow-x: hidden;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
 
-      50% {
-        background-position: 100% 50%;
-      }
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #fff;
+            display: block;
+            transition: 0.3s ease;
+        }
 
-      100% {
-        background-position: 0% 50%;
-      }
-    }
+        .sidebar a:hover {
+            background-color: #006994;
+            padding-left: 30px;
+        }
 
-    .sidebar {
-      width: 250px;
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 20px;
-      position: fixed;
-      height: 100%;
-      top: 0;
-      left: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+        /* Content Area */
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
 
-    .sidebar h2 {
-      color: #fff;
-      margin-bottom: 30px;
-    }
+        header {
+            background-color: #004d7a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
 
-    .sidebar button {
-      background-color: #ff6b6b;
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      font-size: 16px;
-      margin: 10px 0;
-      cursor: pointer;
-      border-radius: 5px;
-      width: 100%;
-    }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
 
-    .sidebar button:hover {
-      background-color: #e74c3c;
-    }
+        header p {
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
 
-    .content {
-      margin-left: 250px;
-      padding: 30px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
+        /* Button Styling */
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #008cba;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            margin: 10px 0;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
 
-    .content h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
+        .button:hover {
+            background-color: #006994;
+        }
 
-    .content p {
-      font-size: 18px;
-      margin: 20px;
-    }
+        /* Section Styling */
+        .section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
 
-    .counter {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-top: 20px;
-    }
+        .section h2 {
+            font-size: 1.8em;
+            color: #004d7a;
+        }
 
-    .footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      text-align: center;
-      padding: 10px;
-      font-size: 14px;
-    }
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #004d7a;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
 
-    .footer p {
-      margin: 5px 0;
-    }
+        footer p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
 
-    .emoji {
-      font-size: 2rem;
-    }
-  </style>
+        .emoji {
+            font-size: 1.5rem;
+        }
+    </style>
 </head>
-
 <body>
-  <div class="sidebar">
-    <h2>Research Article Helper</h2>
-    <button>Upload PDF</button>
-    <button>Get Summary</button>
-    <button>Assist with Document</button>
-  </div>
 
-  <div class="content">
-    <h1>Welcome to the Research Article Helper!</h1>
-    <p>Upload a PDF and explore its knowledge</p>
-
-    <div class="counter">
-      <p>Documents Assisted so far: <span id="documentCount">0</span></p>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#">Home</a>
+        <a href="#upload">Upload File</a>
+        <a href="#summary">Generate Summary</a>
+        <a href="#contact">Contact</a>
     </div>
-  </div>
 
-  <footer class="footer">
-    <p>© 2024 Research Article Helper | Built with 💻 by Mujtaba</p>
-  </footer>
+    <!-- Content Area -->
+    <div class="content">
+        <header>
+            <h1>Research Article Helper</h1>
+            <p>Your AI-powered assistant for summarizing and exploring research articles.</p>
+        </header>
 
-  <script>
-    let documentCount = 0;
+        <!-- Upload Section -->
+        <div id="upload" class="section">
+            <h2>Upload Your Research Paper</h2>
+            <p>Upload your PDF file to extract insights, summaries, and key details quickly.</p>
+            <a class="button" href="#">Go to App</a>
+        </div>
 
-    function updateDocumentCount() {
-      documentCount += 1;
-      document.getElementById('documentCount').innerText = documentCount;
-    }
+        <!-- Summary Section -->
+        <div id="summary" class="section">
+            <h2>Generate Summary</h2>
+            <p>Click below to generate a detailed and accurate summary of your research paper:</p>
+            <a class="button" href="#">Generate Summary</a>
+        </div>
 
-    setInterval(updateDocumentCount, 5000);
-  </script>
+        <!-- Contact Section -->
+        <div id="contact" class="section">
+            <h2>Contact Us</h2>
+            <p>For queries or support, reach out to <strong>your-email@example.com</strong></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Research Article Helper | Built with 💻 by Mujtaba</p>
+    </footer>
+
 </body>
-
 </html>
