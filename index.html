@@ -11,7 +11,7 @@
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #f4f6f9;
+            background-color: #f0f4f8;
             color: #333;
             line-height: 1.6;
         }
@@ -23,7 +23,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            background-color: #003366;
+            background-color: #0277bd;
             overflow-x: hidden;
             padding-top: 20px;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -39,7 +39,7 @@
         }
 
         .sidebar a:hover {
-            background-color: #005b7f;
+            background-color: #01579b;
             padding-left: 30px;
         }
 
@@ -50,7 +50,7 @@
         }
 
         header {
-            background-color: #003366;
+            background-color: #0277bd;
             color: white;
             padding: 20px;
             text-align: center;
@@ -74,7 +74,7 @@
             padding: 15px 30px;
             font-size: 18px;
             color: #fff;
-            background-color: #008cba;
+            background-color: #0288d1;
             border: none;
             border-radius: 5px;
             text-decoration: none;
@@ -85,7 +85,7 @@
         }
 
         .button:hover {
-            background-color: #005f7a;
+            background-color: #01579b;
         }
 
         /* Section Styling */
@@ -99,14 +99,14 @@
 
         .section h2 {
             font-size: 1.8em;
-            color: #003366;
+            color: #0277bd;
         }
 
         /* Footer Styling */
         footer {
             text-align: center;
             padding: 15px;
-            background-color: #003366;
+            background-color: #0277bd;
             color: #fff;
             position: fixed;
             bottom: 0;
@@ -123,11 +123,24 @@
         }
 
         .counter {
-            background-color: #f9f9f9;
-            padding: 10px;
+            background-color: #e3f2fd;
+            padding: 15px;
             border-radius: 5px;
             font-size: 16px;
             margin-top: 20px;
+        }
+
+        .file-upload {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .file-upload input {
+            font-size: 16px;
+            padding: 10px;
+            margin: 10px;
         }
     </style>
 </head>
@@ -152,7 +165,10 @@
         <div id="upload" class="section">
             <h2>Upload Your Research Paper</h2>
             <p>Upload your PDF file to extract insights, summaries, and key details quickly.</p>
-            <a class="button" href="#">Go to App</a>
+            <div class="file-upload">
+                <input type="file" id="fileInput" />
+                <button class="button" onclick="uploadFile()">Upload Document</button>
+            </div>
         </div>
 
         <!-- Summary Section -->
@@ -185,6 +201,17 @@
     <footer>
         <p>&copy; 2024 Research Article Helper | Built with 💻 by Mujtaba</p>
     </footer>
+
+    <script>
+        function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput.files.length === 0) {
+                alert('Please select a file to upload');
+            } else {
+                alert('File uploaded successfully!');
+            }
+        }
+    </script>
 
 </body>
 </html>
